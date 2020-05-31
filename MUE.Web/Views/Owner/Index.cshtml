@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MUE.Web.EntitiesDTO.UserDTO.OwnerDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Владельцы</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddlleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiddlleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            |  @Html.ActionLink("Редактировать", "Edit", new { id = item.OwnerId }) |
+           @* @Html.ActionLink("Удалить", "Delete", new { id = item.OwnerId })*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MUE.Web.EntitiesDTO.BuildingDTO.FlatDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Квартиры</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlatId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountResidents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Square)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuildingId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnersId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnersFullName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlatId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountResidents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Square)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuildingId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnersId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnersFullName)
+        </td>
+        <td>
+            @Html.ActionLink("Удалить", "Delete", new { id = item.FlatId })
+            @Html.ActionLink("Услуги", "SelectService", new { flatId = item.FlatId })
+            @Html.ActionLink("Владелец", "SelectOwner", new { flatId = item.FlatId })
+            @Html.ActionLink("Счета", "SelectSheet", new { FlatId = item.FlatId })
+        </td>
+    </tr>
+}
+
+</table>

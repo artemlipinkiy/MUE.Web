@@ -1,0 +1,91 @@
+﻿@model MUE.Web.EntitiesDTO.MUEDTO.MeterReadingDTO
+
+@{
+    ViewBag.Title = "SubmitMeterReading";
+}
+
+<h2>SubmitMeterReading</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>MeterReadingDTO</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+           @* @Html.LabelFor(model => model.MeterReadingId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10" hidden="hidden">
+                @Html.EditorFor(model => model.MeterReadingId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MeterReadingId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+         @*   @Html.LabelFor(model => model.CodePeriod, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10" hidden="hidden">
+                @Html.EditorFor(model => model.CodePeriod, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CodePeriod, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           @* @Html.LabelFor(model => model.PeriodId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10" hidden="hidden">
+                @Html.EditorFor(model => model.PeriodId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PeriodId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           @* @Html.LabelFor(model => model.TypeOfService, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10" hidden="hidden">
+                @Html.EditorFor(model => model.TypeOfService, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TypeOfService, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.TypeofServiceId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10" hidden="hidden">
+                @Html.EditorFor(model => model.TypeofServiceId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TypeofServiceId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+          @*  @Html.LabelFor(model => model.Flat, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10" hidden="hidden">
+                @Html.EditorFor(model => model.Flat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Flat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           @* @Html.LabelFor(model => model.FlatId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10" hidden="hidden">
+                @Html.EditorFor(model => model.FlatId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FlatId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

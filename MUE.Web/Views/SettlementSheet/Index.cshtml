@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MUE.Web.EntitiesDTO.MUEDTO.SettlementSheetDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Счета</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SettlementSheetId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmmountToBePaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SettlementSheetId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmmountToBePaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Детали", "Details", new { PeriodId = item.PeriodId, FlatId = item.FlatId}) |
+        </td>
+    </tr>
+}
+
+</table>

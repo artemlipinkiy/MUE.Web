@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MUE.Web.EntitiesDTO.MUEDTO.ServiceBillDTO>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детали счета</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Period)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summ)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Period)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfService)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summ)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Квартиры", "MyFlats")
+</p>

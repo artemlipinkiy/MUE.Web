@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MUE.Web.EntitiesDTO.MUEDTO.TariffDTO>
+
+@{
+    ViewBag.Title = "Tariffs";
+}
+
+<h2>Tariffs</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitOfMeasurment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsMeter)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitOfMeasurment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMeter)
+        </td>
+        <td>
+            @if (!item.IsMeter)
+            {
+                @Html.ActionLink("Подать показания", "SubmitMeterReading", new { FlatId = ViewBag.FlatId, PeriodId = ViewBag.PeriodId, TariffId = item.TariffId }) 
+            }
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MUE.Web.EntitiesDTO.BuildingDTO.FlatDTO>
+
+@{
+    ViewBag.Title = "MyFlats";
+}
+
+<h2>Мои квартиры</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rooms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountResidents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Square)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rooms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountResidents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Square)
+        </td>
+        <td>
+            @Html.ActionLink("Период", "SelectPeriod", new { FlatId = item.FlatId }) | @Html.ActionLink("Счета", "FlatSettlementSheet", new { FlatId = item.FlatId })
+
+        </td>
+    </tr>
+}
+
+</table>
